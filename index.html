@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>test_index · everHappyZeng</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#98a0b3;
+      --accent:#60a5fa;
+      --glass: rgba(255,255,255,0.03);
+      color-scheme: dark;
+    }
+    html,body{height:100%;margin:0;font-family:Inter, "Helvetica Neue", Arial, sans-serif;background:
+      radial-gradient(1000px 400px at 10% 10%, rgba(96,165,250,0.06), transparent 10%),
+      radial-gradient(800px 300px at 90% 90%, rgba(99,102,241,0.04), transparent 10%),
+      var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:980px;margin:40px auto;padding:20px;}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{
+      width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#60a5fa,#7c3aed);display:flex;
+      align-items:center;justify-content:center;font-weight:700;font-size:22px;color:white;box-shadow:0 6px 18px rgba(2,6,23,0.6);
+    }
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:16px;margin-top:18px;box-shadow:0 6px 24px rgba(2,6,23,0.6);}
+    .meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .meta .item{background:var(--glass);padding:8px 12px;border-radius:10px;color:var(--muted);font-size:13px}
+    .actions{margin-left:auto;display:flex;gap:8px}
+    a.btn{background:linear-gradient(90deg,var(--accent),#7c3aed);color:white;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600;font-size:13px;display:inline-block}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:16px;margin-top:16px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr;}.actions{margin-left:0}}
+    .panel{background:rgba(255,255,255,0.02);padding:14px;border-radius:10px}
+    .lang-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .lang-pill{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px;color:var(--muted)}
+    pre#readme{white-space:pre-wrap;word-wrap:break-word;background:transparent;border:0;margin:0;color:#dfe9ff;font-size:14px;line-height:1.6}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+    .loading{color:var(--muted);font-style:italic}
+    .lang-bar{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden;margin-top:8px}
+    .lang-seg{height:100%;float:left}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">TI</div>
+      <div>
+        <h1 id="repo-fullname">everHappyZeng / test_index</h1>
+        <p class="lead" id="repo-desc">仓库简介加载中…</p>
+      </div>
+      <div class="actions" id="action-buttons">
+        <a id="github-link" class="btn" href="https://github.com/everHappyZeng/test_index" target="_blank" rel="noopener">在 GitHub 上查看</a>
+      </div>
+    </header>
+
+    <div class="card">
+      <div class="meta" id="repo-meta">
+        <div class="item small" id="meta-stars">⭐ Stars: —</div>
+        <div class="item small" id="meta-forks">🍴 Forks: —</div>
+        <div class="item small" id="meta-issues">🐛 Open issues: —</div>
+        <div class="item small" id="meta-updated">最后更新: —</div>
+      </div>
+
+      <div class="grid">
+        <div>
+          <div class="panel">
+            <h3 style="margin:0 0 6px 0">README</h3>
+            <div class="small loading" id="readme-loading">正在尝试加载 README（若仓库没有 README 或请求被限制，则显示为纯文本）…</div>
+            <pre id="readme" aria-live="polite"></pre>
+          </div>
+
+          <div class="panel" style="margin-top:12px">
+            <h3 style="margin:0 0 6px 0">文件列表（根目录）</h3>
+            <div id="file-list" class="small">正在加载…</div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="panel">
+            <h3 style="margin:0 0 6px 0">语言统计</h3>
+            <div id="languages" class="small">
+              <div class="loading">正在加载语言信息…</div>
+            </div>
+          </div>
+
+          <div class="panel" style="margin-top:12px">
+            <h3 style="margin:0 0 6px 0">快速链接</h3>
+            <div class="small" style="display:flex;flex-direction:column;gap:8px">
+              <a id="link-code" href="https://github.com/everHappyZeng/test_index" target="_blank" rel="noopener">查看代码</a>
+              <a id="link-issues" href="https://github.com/everHappyZeng/test_index/issues" target="_blank" rel="noopener">Issues</a>
+              <a id="link-pulls" href="https://github.com/everHappyZeng/test_index/pulls" target="_blank" rel="noopener">Pull requests</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <footer>
+      生成于本地 · 若需将此 index.html 添加到仓库，可直接将文件放到仓库根目录并提交。
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      const owner = 'everHappyZeng';
+      const repo = 'test_index';
+      const repoApi = `https://api.github.com/repos/${owner}/${repo}`;
+      const contentsApi = `https://api.github.com/repos/${owner}/${repo}/contents/`;
+      const rawReadmeUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/README.md`;
+      const el = id => document.getElementById(id);
+
+      function niceDate(iso){
+        try{
+          return new Date(iso).toLocaleString();
+        }catch(e){ return iso; }
+      }
+
+      // Fetch repo basic info
+      fetch(repoApi)
+        .then(r => {
+          if(!r.ok) throw new Error('无法获取仓库信息: ' + r.status);
+          return r.json();
+        })
+        .then(data => {
+          el('repo-fullname').textContent = data.full_name || `${owner}/${repo}`;
+          el('repo-desc').textContent = data.description || '（无描述）';
+          el('meta-stars').textContent = '⭐ Stars: ' + (data.stargazers_count ?? '—');
+          el('meta-forks').textContent = '🍴 Forks: ' + (data.forks_count ?? '—');
+          el('meta-issues').textContent = '🐛 Open issues: ' + (data.open_issues_count ?? '—');
+          el('meta-updated').textContent = '最后更新: ' + niceDate(data.updated_at || data.pushed_at || '');
+          el('github-link').href = data.html_url || `https://github.com/${owner}/${repo}`;
+          el('link-code').href = `${data.html_url}/tree/main` || `https://github.com/${owner}/${repo}`;
+          el('link-issues').href = `${data.html_url}/issues`;
+          el('link-pulls').href = `${data.html_url}/pulls`;
+        })
+        .catch(err => {
+          el('repo-desc').textContent = '无法加载仓库信息：' + err.message;
+        });
+
+      // Fetch languages and render percentages
+      fetch(`${repoApi}/languages`)
+        .then(r => {
+          if(!r.ok) throw new Error('无法获取语言信息: ' + r.status);
+          return r.json();
+        })
+        .then(data => {
+          const container = el('languages');
+          container.innerHTML = '';
+          const total = Object.values(data).reduce((a,b)=>a+(b||0),0);
+          if(total === 0){
+            container.innerHTML = '<div class="small">无检测到的语言或仓库为空。</div>';
+            return;
+          }
+          const langList = document.createElement('div');
+          langList.className = 'lang-list';
+          Object.entries(data).sort((a,b)=>b[1]-a[1]).forEach(([lang,bytes],i)=>{
+            const pct = Math.round(bytes/total*1000)/10; // 1 decimal
+            const pill = document.createElement('div');
+            pill.className = 'lang-pill';
+            pill.textContent = `${lang} · ${pct}%`;
+            pill.title = `${bytes} bytes`;
+            langList.appendChild(pill);
+          });
+          // visual bar
+          const bar = document.createElement('div');
+          bar.className = 'lang-bar';
+          Object.entries(data).sort((a,b)=>b[1]-a[1]).forEach(([lang,bytes],i)=>{
+            const pct = bytes/total*100;
+            const seg = document.createElement('div');
+            seg.className = 'lang-seg';
+            seg.style.width = pct + '%';
+            // simple deterministic color per language
+            const hue = (Array.from(lang).reduce((s,ch)=>s+ch.charCodeAt(0),0)*37) % 360;
+            seg.style.background = `linear-gradient(90deg,hsl(${hue} 70% 55%), hsl(${(hue+40)%360} 70% 45%))`;
+            bar.appendChild(seg);
+          });
+
+          container.appendChild(bar);
+          container.appendChild(langList);
+        })
+        .catch(err => {
+          el('languages').innerHTML = '<div class="small">加载语言信息失败：' + err.message + '</div>';
+        });
+
+      // Try to load README (raw). If not found, skip gracefully.
+      fetch(rawReadmeUrl)
+        .then(r => {
+          const note = el('readme-loading');
+          if(!r.ok){
+            note.textContent = '未找到 README（或无法访问 raw 内容）。';
+            return '';
+          }
+          note.remove();
+          return r.text();
+        })
+        .then(text => {
+          if(!text) return;
+          // Simple markdown-to-plaintext minimal formatting:
+          // Replace headings and links for readability. We intentionally avoid heavy markdown parsing.
+          const converted = text
+            .replace(/^# (.*$)/gm, (m, p1) => p1.toUpperCase() + '\n' + '-'.repeat(Math.min(80,p1.length)))
+            .replace(/^## (.*$)/gm, (m, p1) => p1 + '\n' + '~'.repeat(Math.min(40,p1.length)))
+            .replace(/\[(.*?)\]\((.*?)\)/g, '$1 ($2)')
+            .replace(/\*\*(.*?)\*\*/g, '$1')
+            .replace(/\*(.*?)\*/g, '$1');
+          el('readme').textContent = converted;
+        })
+        .catch(err => {
+          // fallback: show error inside readme area
+          const note = el('readme-loading');
+          if(note) note.textContent = '读取 README 时出错：' + err.message;
+        });
+
+      // List root files (names only)
+      fetch(contentsApi)
+        .then(r => {
+          if(!r.ok) throw new Error('无法读取仓库根目录: ' + r.status);
+          return r.json();
+        })
+        .then(files => {
+          if(!Array.isArray(files)){
+            el('file-list').textContent = '无法列出根目录。';
+            return;
+          }
+          const ul = document.createElement('div');
+          ul.className = 'small';
+          files.forEach(f => {
+            const row = document.createElement('div');
+            row.style.display = 'flex';
+            row.style.justifyContent = 'space-between';
+            row.style.padding = '4px 0';
+            const left = document.createElement('div');
+            left.textContent = (f.type === 'dir' ? '📁 ' : '📄 ') + f.name;
+            const right = document.createElement('a');
+            right.textContent = '查看';
+            right.href = f.html_url;
+            right.target = '_blank';
+            right.rel = 'noopener';
+            right.style.color = 'var(--accent)';
+            row.appendChild(left);
+            row.appendChild(right);
+            ul.appendChild(row);
+          });
+          el('file-list').innerHTML = '';
+          el('file-list').appendChild(ul);
+        })
+        .catch(err => {
+          el('file-list').textContent = '加载文件列表失败：' + err.message;
+        });
+
+    })();
+  </script>
+</body>
+</html>
